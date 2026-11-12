@@ -9,3 +9,8 @@
 #### - mvn test -P dev  --> aplication-dev.properties
 #### - mvn test -P test --> aplication-test.properties
 #### - mvn test -P prod --> aplication-prod.properties
+
+### 4.  Integracion continua (Lab 13) --> Jenkins en AWS EC2
+
+#### - Jenkinsfile: Checkout -> Build (mvn clean compile) -> Test (mvn test) -> Package (mvn package -DskipTests)
+#### - Cada push a main dispara el pipeline por el webhook de GitHub (/github-webhook/)

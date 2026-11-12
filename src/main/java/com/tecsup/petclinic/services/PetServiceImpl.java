@@ -96,8 +96,9 @@ public class PetServiceImpl implements PetService {
     @Override
     public List<PetDTO> findByName(String name) {
 
-        // normaliza el texto de busqueda (quita espacios y pasa a minusculas)
-        List<Pet> pets = petRepository.findByName(name.trim().toLowerCase());
+        // solo se quitan los espacios: los nombres se guardan con mayuscula inicial ("Leo")
+        // y la columna en H2 compara respetando mayusculas/minusculas
+        List<Pet> pets = petRepository.findByName(name.trim());
 
         pets.forEach(pet -> log.info("" + pet));
 

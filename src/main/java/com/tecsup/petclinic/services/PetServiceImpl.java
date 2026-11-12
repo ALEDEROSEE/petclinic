@@ -96,7 +96,8 @@ public class PetServiceImpl implements PetService {
     @Override
     public List<PetDTO> findByName(String name) {
 
-        List<Pet> pets = petRepository.findByName(name);
+        // normaliza el texto de busqueda (quita espacios y pasa a minusculas)
+        List<Pet> pets = petRepository.findByName(name.trim().toLowerCase());
 
         pets.forEach(pet -> log.info("" + pet));
 
